@@ -1,0 +1,5 @@
+10.5 Some random text here.
+3.14 Another line of text.
+42 The ultimate answer.
+1.618 Some more random text.
+2.71 Another interesting line.

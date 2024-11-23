@@ -1,0 +1,11 @@
+The ranges library is an extension and generalization of the algorithms and iterator libraries that makes them more powerful by making them composable and less error-prone.
+
+The library creates and manipulates range views, lightweight objects that indirectly represent iterable sequences (ranges). Ranges are an abstraction on top of
+
+    [begin, end) iterator pairs, e.g. ranges made by implicit conversion from containers. All algorithms that take iterator pairs now have overloads that accept ranges (e.g ranges::sort)
+    [start, size) counted sequences, e.g. range returned by views::counted
+    [start, predicate) conditionally-terminated sequences, e.g. range returned by views::take_while
+    [start..) unbounded sequences, e.g. range returned by views::iota 
+
+The ranges library includes range algorithms, which are applied to ranges eagerly, and range adaptors, which are applied to views lazily. Adaptors can be composed into pipelines, so that their actions take place as the view is iterated. 
+
