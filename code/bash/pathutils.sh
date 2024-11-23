@@ -2,7 +2,7 @@
 
 # ***********************************************
 #  Programming in C++
-#  09 -- 13 May 2022
+#  08 -- 12 May 2023
 #  Jülich Supercomputing Centre
 # ***********************************************
 
@@ -61,11 +61,23 @@ incpathadd() {
 incpathrm() {
     remove_path_element CPATH $1
 }
+manpathadd() {
+    prepend_path MANPATH $1
+}
+manpathrm() {
+    remove_path_element MANPATH $1
+}
 cmpathadd() {
     prepend_path CMAKE_PREFIX_PATH $1
 }
 cmpathrm() {
     remove_path_element CMAKE_PREFIX_PATH $1
+}
+pypathadd() {
+    prepend_path PYTHONPATH $1
+}
+pypathrm() {
+    remove_path_element PYTHONPATH $1
 }
 
 

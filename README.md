@@ -1,11 +1,11 @@
-# Programming in C++ 2022
+# Programming in C++ (2023)
 
-Course material for the course "Programming in C++", 9 --13 May 2022,
+Course material for the course "Programming in C++", 8 --12 May 2023,
 organized by the Jülich Supercomputing Centre,
 Forschungszentrum Jülich, Germany.
 
 
-# cxx2022
+# cxx2023
 
 You will need to pull from this repository periodically during this course.
 
@@ -24,7 +24,7 @@ do as follows:
     cd Book/chapter1
     cp -r examples mine
     cd mine
-    clang++ -std=c++20 math_functions.cc
+    g++ -std=c++20 math_functions.cc
     ./a.out
 ```
 
@@ -36,7 +36,8 @@ includes the PDFs of the book, course slides and other utillities.
 ## Testing your set up
 
 To work with this material, you will need to have a fairly up-to-date
-C++ compiler. GCC version 11.2 or Clang version 13.0 is recommended.
+C++ compiler. GCC version 13.1 or Clang version 16.0 is recommended.
+These will be available for you in the course room.
 Microsoft's Visual C++ compiler has excellent support for C++20, if
 you have the latest version installed. During the course, we will focus
 on using open source tools, which are available to everyone, rather
@@ -57,49 +58,27 @@ To test your setup, proceed as follows:
     ./hello_cxx20.clang
 ```
 
-And finally to test if your compiler can at least partially
-handle C++20 modules, try the two remaining examples:
-
-```bash
-    clang++ -std=c++20 -stdlib=libc++ -fmodules hello_m.cc -o hello_m.clang
-    ./hello_m.clang
-    clang++ -std=c++20 -stdlib=libc++ -fmodules hello_c++20_m.cc -o hello_cxx20_m.clang
-    ./hello_cxx20_m.clang
-
-    g++ -std=c++20 -fmodules-ts -xc++-system-header iostream
-    g++ -std=c++20 -fmodules-ts -xc++-system-header concepts
-    g++ -std=c++20 -fmodules-ts hello_m.cc -o hello_m.gcc
-    g++ -std=c++20 -fmodules-ts hello_m.cc -o hello_cxx20_m.gcc
-    ./hello_m.gcc
-    ./hello_cxx20_m.gcc
-```
-
 # Using aliases to save some typing
 
 As the above examples show, we will often need to type a
 lot of options to compile our programs during this course,
 since we want to use C++20, which is not the default
-standard for the compilers yet. A vew convenient aliases
+standard for the compilers yet. A few convenient aliases
 have been prepared which you can use to shorten the
-above compilation steps. To use them, do as follows:
-
-```bash
-source course_material_dir/code/bash/aliases.sh
-```
-
-Once you have done that, you can shorten the above 
-steps to the following: 
+above compilation steps. These aliases are available as
+soon as you log in to your account in the course room.
+Example use, for clang is as follows. To use gcc instead,
+replace C with G.
 
 ```bash 
 C hello.cc 
 C hello_c++20.cc 
+```
 
-Cm hello_m.cc
-Cm hello_c++20_m.cc 
+In case you wish to use them on another system, for instance,
+on your own laptop, do as follows:
 
-Gh iostream 
-Gh concepts 
-Gm hello_m.cc 
-Gm hello_c++20_m.cc
-
+```bash
+source course_material_dir/code/bash/aliases.sh
+```
 
