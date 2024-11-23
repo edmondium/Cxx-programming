@@ -1,9 +1,9 @@
 To compile with clang:
 
-clang++ -std=c++20 -stdlib=libc++ usesaxpy.cc
+clang++ -std=c++23 -stdlib=libc++ usesaxpy.cc
 
 With gcc:
 
-g++ -std=c++20 usesaxpy.cc
+g++ -std=c++23 usesaxpy.cc
 
 

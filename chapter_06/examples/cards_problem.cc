@@ -83,13 +83,9 @@ auto main() -> int
         frequency_of_sum[sum]++;
     }
     // Write out the frequency table for the sum obtained in all the trials
-    std::cout << std::left << std::setw(12) << "Sum"
-              << std::left << std::setw(12) << "Frequency"
-              << std::left << std::setw(12) << "Probability\n";
+    std::print("{: <12}{: <12}{: <12}\n", "Sum", "Frequency", "Probability");
     for (size_t i = 0; i < frequency_of_sum.size(); ++i) {
-        std::cout << std::left << std::setw(12) << i
-                  << std::left << std::setw(12) << frequency_of_sum[i]
-                  << std::left << std::setw(12) << (1.0 * frequency_of_sum[i]) / Ntrials
-                  << "\n";
+	std::print("{: <12}{: <12}{: <12}\n", i, frequency_of_sum[i],
+			(1.0 * frequency_of_sum[i])/Ntrials);
     }
 }

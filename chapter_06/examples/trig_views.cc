@@ -1,22 +1,15 @@
 // examples/trig_views.cc
-#include <iostream>
+#include <print>
 #include <algorithm>
 #include <cmath>
 #include <limits>
 
-#include <cxx20ranges>
-
-// Compatibility header in your include path
-// Replace with <ranges> if you only work with
-// g++ or if your version of clang++ already
-// has ranges algorithms implemented.
+#include <ranges>
 
 auto main() -> int
 {
-//    namespace sr = std::ranges;
-//    namespace sv = std::views;
-//  Uncomment the above two lines if you are not using the
-//  compatibility header above.
+    namespace sr = std::ranges;
+    namespace sv = sr::views;
 
     const auto pi = std::acos(-1);
     constexpr auto npoints = 10'000'00UL;
@@ -31,13 +24,11 @@ auto main() -> int
     auto res = sv::iota(0UL, npoints) | sv::transform(to_0_2pi)
                | sv::transform(x_to_fx);
     if (sr::any_of(res, is_bad) ) {
-        std::cerr << "There is at least one input for which the relation does not hold.\n"
-                  << "They are...\n";
-        for (auto bad_res : res | sv::filter(is_bad)) {
-            std::cerr << bad_res << "\n";
-        } 
+        std::print(stderr, "There is at least one input for which the relation does not hold.\n"
+                   "They are...\n{}\n",
+                   res | sv::filter(is_bad));
     } else {
-        std::cout << "The relation holds for all inputs\n";
+        std::print("The relation holds for all inputs\n");
     }
 }
 

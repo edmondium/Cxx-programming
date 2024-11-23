@@ -1,9 +1,12 @@
 // examples/chrono_demo.cc
 #include <algorithm>
 #include <chrono>
-#include <cxx20ranges>
+#include <ranges>
 #include <iostream>
 #include <vector>
+
+namespace sr = std::ranges;
+namespace sv = sr::views;
 
 constexpr auto is_prime_rec(size_t number, size_t c) -> bool
 {
@@ -25,5 +28,5 @@ auto main() -> int
     for (unsigned i : primes)
         std::cout << i << '\n';
     auto d = steady_clock::now() - t;
-    std::cout << "Prime search took " << duration<double>(d).count() << " seconds\n";
+    std::print("Prime search took {}\n", duration<double>(d));
 }

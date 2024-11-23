@@ -21,14 +21,14 @@ public:
     FileAsLines& operator=(const FileAsLines&) = default;
     FileAsLines& operator=(FileAsLines&&) = default;
     ~FileAsLines() = default;
-    inline size_t size() const { return mylines.size(); }
-    inline bool empty() const { return mylines.empty(); }
-    inline const std::string& operator[](size_t i) const { return mylines[i]; }
-    inline std::string& operator[](size_t i) { return mylines[i]; }
-    inline const std::string& front() const { return mylines.front(); }
-    inline std::string& front() { return mylines.front(); }
-    inline const std::string& back() const { return mylines.back(); }
-    inline std::string& back() { return mylines.back(); }
+    inline auto size() const -> size_t { return mylines.size(); }
+    inline auto empty() const -> bool { return mylines.empty(); }
+    inline auto operator[](size_t i) const -> const std::string& { return mylines[i]; }
+    inline auto operator[](size_t i) -> std::string& { return mylines[i]; }
+    inline auto front() const -> const std::string& { return mylines.front(); }
+    inline auto front() -> std::string& { return mylines.front(); }
+    inline auto back() const -> const std::string& { return mylines.back(); }
+    inline auto back() -> std::string& { return mylines.back(); }
     inline decltype(auto) begin() { return mylines.begin(); }
     inline decltype(auto) end() { return mylines.end(); }
     inline decltype(auto) begin() const { return mylines.cbegin(); }
@@ -37,5 +37,10 @@ public:
 private:
     std::vector<std::string> mylines;
 };
-std::ostream& operator<<(std::ostream& os, const FileAsLines& lines);
+auto operator<<(std::ostream& os, const FileAsLines& lines) -> std::ostream& 
+{
+    for (auto&& line : lines) os << line;
+    return os;
+}
+
 

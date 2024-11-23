@@ -12,11 +12,11 @@ struct SomeCalc
   }
 };
 
-int main()
+auto main() -> int
 {
   constexpr SomeCalc<int> intadder;
   constexpr int res = intadder(1,1);
-  static_assert(res==2,"Adder seems to return unexpected result");
+  static_assert(res == 2,"Adder seems to return unexpected result");
   SomeCalc<std::string> stradder;
 }
 

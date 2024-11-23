@@ -26,8 +26,8 @@ std::ostream& operator<<(std::ostream& strm, const std::tuple<Args...>& t)
     return strm << "]";
 }
 
-//int main()
-//{
-//    std::tuple<int, std::string, double, int, double > t{23,"abc",3.141, 3, 2.718};
-//    std::cout << t << "\n";
-//}
+auto main() -> int
+{
+    std::tuple<int, std::string, double, int, double > t{23,"abc",3.141, 3, 2.718};
+    std::cout << t << "\n";
+}

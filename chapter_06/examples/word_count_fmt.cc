@@ -1,9 +1,12 @@
 #include <fstream>
-#include <cxx20format>
-#include <cxx20ranges>
-#include <iostream>
+#include <format>
+#include <ranges>
+#include <print>
 #include <map>
 #include <string>
+
+namespace sr = std::ranges;
+namespace sv = sr::views;
 
 auto main(int argc, char* argv[]) -> int
 {
@@ -22,5 +25,5 @@ auto main(int argc, char* argv[]) -> int
     }
 
     for (auto&& [word, count] : freq)
-        std::cout << format("{:20}{:4}{:12}\n", word, ':', count);
+        std::print("{:20}{:4}{:12}\n", word, ':', count);
 }

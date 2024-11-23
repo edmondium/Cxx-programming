@@ -1,4 +1,4 @@
-#include <iostream>
+#include <print>
 #include <map>
 #include <random>
 
@@ -10,8 +10,8 @@ auto main() -> int
     // normal distribution
     // auto generator = ?
     std::map<int, unsigned> H;
-    for (unsigned i = 0; i < 5000000; ++i)
+    for (auto i = 0U; i < 5000000U; ++i)
         H[static_cast<int>(std::floor(generator()))]++;
-    for (auto& i : H)
-        std::cout << i.first << " " << i.second << "\n";
+    for (const auto& [i, f] : H)
+        std::print("{}\t{}\n", i, f);
 }

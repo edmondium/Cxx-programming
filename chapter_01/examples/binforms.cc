@@ -1,4 +1,4 @@
-#include "binform17.hh"
+#include "binform.hh"
 #include <iostream>
 
 template <class T>

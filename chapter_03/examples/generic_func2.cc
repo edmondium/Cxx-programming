@@ -8,11 +8,11 @@ auto f(T i1, T i2)
     return i1 + i2;
 }
 
-int main()
+auto main() -> int
 {
     using namespace std::string_literals;
     std::cout << f("1", "2") << "\n"; 
-    // Does not work, because it's an invalid use for the function f, we wrote that for things which are addable.
+    // Does not work, because it's an invalid use of the function f. We wrote that for things which are addable.
     // How did we try to indicate this intention of "addability" of the arguments ?
     // Answer : We didn't!
     // If the function had been 50 lines instead of 1, the real error would be very hard to

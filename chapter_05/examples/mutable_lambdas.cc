@@ -3,7 +3,7 @@
 #include <vector>
 #include <utility>
 
-int main()
+auto main() -> int
 {
     using namespace std;
     vector<unsigned long> v, w;
@@ -22,6 +22,7 @@ int main()
     // w = [1, 1, 2, 3, 5, 8, 11 ...]
 
     std::cout << " w = \n";
-    for (auto el : w)
+    for (auto&& el : w)
         std::cout << el << "\n";
 }
+

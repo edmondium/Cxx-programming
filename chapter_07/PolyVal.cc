@@ -1,12 +1,12 @@
-#include <iostream>
+#include <print>
 #include <memory>
 #include <vector>
-#include <type_traits>
+#include <concepts>
 using namespace std::string_literals;
 
-void func1(int x) { std::cout << "Integer = " << x << "\n"; }
-void func1(double x) { std::cout << "Double = " << x << "\n"; }
-void func1(std::string x) { std::cout << "std::string = \"" << x << "\"\n"; }
+void func1(int x) { std::print("Integer = {}\n", x); }
+void func1(double x) { std::print("Double = {}\n", x); }
+void func1(std::string_view x) { std::print("std::string = \"{}\"\n", x); }
 
 class PolyVal {
     struct Internal {
@@ -57,10 +57,10 @@ auto main() -> int
     for (auto&& elem : v) {
         func1(elem);
     }
-    std::cout << "------------\n";
+    std::print("------------\n");
     for (int i = 0; i < 6; ++i) {
-        std::cout << "Calling function with i = " 
-            << i << " and receiving PolyVal by value\n";
+        std::print("Calling function with i = {} and receiving PolyVal by value\n",
+                   i);
         PolyVal X = f(i);
         func1(X);
     }

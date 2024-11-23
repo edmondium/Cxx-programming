@@ -1,11 +1,12 @@
 // examples/iota.cc
 #include <iostream>
-#include <cxx20ranges>
+#include <ranges>
 // Compatibility header.
 
 auto main() -> int
 {
-    // namespace sv = std::views;
+    namespace sr = std::ranges;
+    namespace sv = sr::views;
     // Uncomment the line above if not using
     // the compatibility header.
     for (auto i : sv::iota(1UL)) {

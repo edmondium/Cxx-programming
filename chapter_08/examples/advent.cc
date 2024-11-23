@@ -7,7 +7,7 @@ year. Usage:
 */
 
 import <chrono>;
-import <iostream>;
+import <print>;
 auto current_year() -> std::chrono::year
 {
     using namespace std::chrono;
@@ -28,9 +28,7 @@ auto main(int argc, char* argv[]) -> int
     Date xmas { Y / December / 25d };
     Date lastadv { s4 >= xmas ? s3 : s4 };
 
-    std::cout << "The last advent for the year "
-              << static_cast<int>(Y) << " falls on "
-              << static_cast<unsigned>(lastadv.day())
-              << "'th of December.\n";
+    std::print("The last advent for the year {} falls on {}th of December.\n",
+              static_cast<int>(Y), static_cast<unsigned>(lastadv.day()));
 }
 

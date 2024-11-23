@@ -1,7 +1,7 @@
-import <iostream>;
+import <print>;
 
 auto main() -> int
 {
-    std::cout << "Hello, world!\n";
+    std::print("Hello, world!\n");
 }
 

@@ -1,0 +1,23 @@
+A solar flare is a relatively intense, localized emission of 
+electromagnetic radiation in the Sun's atmosphere. Flares 
+occur in active regions and are often, but not always, 
+accompanied by coronal mass ejections, solar particle events, 
+and other eruptive solar phenomena. The occurrence of solar 
+flares varies with the 11-year solar cycle.
+
+Solar flares are thought to occur when stored magnetic energy 
+in the Sun's atmosphere accelerates charged particles in the 
+surrounding plasma. This results in the emission of 
+electromagnetic radiation across the electromagnetic spectrum.
+
+The extreme ultraviolet and x-ray radiation from solar flares 
+is absorbed by the daylight side of Earth's upper atmosphere, 
+in particular the ionosphere, and does not reach the surface. 
+This absorption can temporarily increase the ionization of 
+the ionosphere which may interfere with short-wave radio 
+communication. The prediction of solar flares is an active 
+area of research.
+
+Flares also occur on other stars, where the term stellar 
+flare applies. 
+

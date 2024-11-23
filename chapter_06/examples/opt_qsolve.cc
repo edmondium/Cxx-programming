@@ -1,5 +1,6 @@
 // examples/opt_qsolve.cc
 
+#include <print>
 #include <iostream>
 #include <cmath>
 #include <optional>
@@ -20,13 +21,13 @@ auto solve_quadratic(double a, double b, double c)
 auto main(int argc, char *argv[]) -> int
 {
     if (argc < 4) {
-        std::cerr << "Needs three real numbers as arguments!\n";
+        std::print(stderr, "Needs three real numbers as arguments!\n");
         return 1;
     }
     auto c1 = std::stod(argv[1]);
     auto c2 = std::stod(argv[2]);
     auto c3 = std::stod(argv[3]);
-    std::cout << "Quadratic equation " << c1 << " x^2 + " << c2 << " x + " << c3 << " = 0 \n";
+    std::print("Quadratic equation {} x^2 + {} x + {} = 0\n", c1, c2, c3);
     auto result = solve_quadratic(c1, c2, c3);
     // result is an optional pair of doubles
     if (result) {
@@ -34,14 +35,16 @@ auto main(int argc, char *argv[]) -> int
         // contains a value.
         auto [root1, root2] = *result; 
         // *result unpacks the inner value of the optional
-        std::cout << "has solutions\n"
-              << "x1 = " << root1 << "\n"
-              << "x2 = " << root2 << "\n";
+        std::print(R"(
+has solutions
+x1 = {}
+x2 = {}
+)", root1, root2);
     } else {
         // This block of code is executed if the condition of the if statement
         // evaluates to false. In this case, this means the optional
         // does not contain a value.
-        std::cout << "No solution is possible in the space of real numbers.\n";
+        std::print("No solution is possible in the space of real numbers.\n");
     }
 }
 

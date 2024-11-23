@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <array>
 #include <algorithm>
 
 auto main(int argc, char* argv[]) -> int

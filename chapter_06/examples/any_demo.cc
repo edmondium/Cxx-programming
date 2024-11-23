@@ -1,14 +1,14 @@
 #include <any>
 #include <map>
 #include <string>
-#include <iostream>
+#include <print>
 #if __has_include(<boost/core/demangle.hpp>)
   #include <boost/core/demangle.hpp>
   #define has_boost_demangle 1
 #endif
 // Uncomment the above to see the type info in a more human readable form
 using namespace std;
-using namespace std::string_literals;
+using namespace std::literals;
 
 auto demangle(auto anyobj) -> std::string
 {
@@ -17,32 +17,32 @@ auto demangle(auto anyobj) -> std::string
     #else
     auto dmgnm = anyobj.type().name();
     #endif
-    return "any[[" + dmgnm + "]]";
+    return std::format("any[[{}]]", dmgnm) ;
 }
 
 auto main() -> int
 {
     any var = 1;
-    cout << "Reading int after storing int ...\n" 
-         << demangle(var) << ", value = " << any_cast<int>(var) << "\n";
+    std::print("Reading int after storing int ...\n{}, value = {}\n", 
+         demangle(var), any_cast<int>(var));
     try {
-        cout << "Trying to get a float after storing an int ... \n";
+        std::print("Trying to get a float after storing an int ... \n");
         auto res = any_cast<float>(var);
-        cout << "extracted value = " << res << "\n";
+	std::print("extracted value = {}\n", res);
     } catch (const exception& err) {
-        cout << "Float cast after storing int failed. Error : " 
-             << err.what() << "\n";
+        std::print("Float cast after storing int failed. Error : {}\n", 
+             err.what());
     }
     var = "Europa"s;
-    cout << "Reading string after storing string ... \n" 
-         << demangle(var) << ", value = " << any_cast<string>(var) << "\n";
+    std::print("Reading string after storing string ... \n{}, value = {}\n", 
+         demangle(var), any_cast<string>(var));
     try {
-        cout << "Trying to get a int after storing an string  ...\n"; 
+        std::print("Trying to get a int after storing an string  ...\n"); 
         auto res = any_cast<int>(var);
-        cout << "extracted value = " << res << "\n";
+	std::print("extracted value = {}\n", res);
     } catch (const exception& err) {
-        cout << "Int cast after storing string failed. Error : " 
-             << err.what() << "\n";
+        std::print("Int cast after storing string failed. Error : {}\n", 
+             err.what());
     }
 
     map<string, any> config;
